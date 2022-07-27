@@ -11,6 +11,8 @@
 		335A9E9128906EF800F3FEA1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335A9E9028906EF800F3FEA1 /* ContentView.swift */; };
 		335A9E9328906EF900F3FEA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 335A9E9228906EF900F3FEA1 /* Assets.xcassets */; };
 		335A9E9628906EF900F3FEA1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 335A9E9528906EF900F3FEA1 /* Preview Assets.xcassets */; };
+		335A9E9E289089D600F3FEA1 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335A9E9D289089D600F3FEA1 /* Home.swift */; };
+		335A9EA0289092E500F3FEA1 /* ScratchCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335A9E9F289092E500F3FEA1 /* ScratchCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		335A9E9028906EF800F3FEA1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		335A9E9228906EF900F3FEA1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		335A9E9528906EF900F3FEA1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		335A9E9D289089D600F3FEA1 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		335A9E9F289092E500F3FEA1 /* ScratchCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScratchCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +55,7 @@
 		335A9E8D28906EF800F3FEA1 /* Lotto-Animation */ = {
 			isa = PBXGroup;
 			children = (
+				335A9E9C289089BA00F3FEA1 /* Views */,
 				335A9E8E28906EF800F3FEA1 /* Lotto_AnimationApp.swift */,
 				335A9E9028906EF800F3FEA1 /* ContentView.swift */,
 				335A9E9228906EF900F3FEA1 /* Assets.xcassets */,
@@ -65,6 +70,15 @@
 				335A9E9528906EF900F3FEA1 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		335A9E9C289089BA00F3FEA1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				335A9E9D289089D600F3FEA1 /* Home.swift */,
+				335A9E9F289092E500F3FEA1 /* ScratchCardView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +152,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				335A9E9128906EF800F3FEA1 /* ContentView.swift in Sources */,
+				335A9EA0289092E500F3FEA1 /* ScratchCardView.swift in Sources */,
+				335A9E9E289089D600F3FEA1 /* Home.swift in Sources */,
 				335A9E8F28906EF800F3FEA1 /* Lotto_AnimationApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
