@@ -32,6 +32,7 @@ struct Home: View {
 
                 
             }
+            .foregroundColor(.white)
             
             // MARK: Card
             CardView()
@@ -63,9 +64,9 @@ struct Home: View {
                 }
                 .padding(.top, 15)
             }
+            .foregroundColor(.white)
 
         }
-        .preferredColorScheme(.dark) // to make text white
         .padding(15)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top) //TODO: add alignment top
         .background{

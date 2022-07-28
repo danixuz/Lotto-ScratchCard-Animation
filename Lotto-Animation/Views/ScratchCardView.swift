@@ -21,6 +21,9 @@ struct ScratchCardView<Content: View, Overlay: View>: View {
         self.pointSize = pointSize
         self.onFinish = onFinish
     }
+    // MARK: Animation properties
+    @State var dragPoints: [CGPoint] = []
+    @State var animateCard: [Bool] = [false, false]
     var body: some View {
         ZStack{
             // MARK: The logic is simple
@@ -29,14 +32,76 @@ struct ScratchCardView<Content: View, Overlay: View>: View {
             overlay
             content
                 .mask {
-                    Rectangle() // to show the trophy
+//                    Rectangle() // to show the trophy
+                    PointShape(points: dragPoints)
+                    // MARK: Giving the line drawn a radius
+                        .stroke(style: StrokeStyle(lineWidth: pointSize, lineCap: .round, lineJoin: .round))
+                    
                 }
+            // MARK: Adding gesture
+                .gesture(
+                    DragGesture()
+                        .onChanged({value in
+                            // MARK: Stopping animation when the first touch is registered
+                            if dragPoints.isEmpty{
+                                withAnimation(.easeInOut){
+                                    animateCard[0] = false
+                                    animateCard[1] = false
+                                }
+                            }
+                            
+                            // MARK: Adding the point
+                            dragPoints.append(value.location)
+                        })
+                        .onEnded({ _ in
+                            // MARK: Checking if atleast one portion is scratched
+                            if !dragPoints.isEmpty{
+                                // MARK: Scratching whole card
+                                
+                                // Callback
+                                onFinish()
+                                
+                            }
+                        })
+                )
+        }
+        // MARK: The combination of both rotation3deffects and onappear code create the circular 3d rotation effect
+        .rotation3DEffect(.init(degrees: animateCard[0] ? 4: 0), axis: (x: 1, y: 0, z: 0))
+        .rotation3DEffect(.init(degrees: animateCard[1] ? 4: 0), axis: (x: 0, y: 1, z: 0))
+        
+        .onAppear{
+            withAnimation(.easeInOut(duration: 1.5).repeatForever(autoreverses: true)){
+                animateCard[0] = true
+            }
+            withAnimation(.easeInOut(duration: 1.5).repeatForever(autoreverses: true).delay(0.8)){
+                animateCard[1] = true
+            }
+            
+        }
+    }
+}
+
+// MARK: Custom path shape based on drag location
+struct PointShape: Shape{
+    var points: [CGPoint]
+    var animatableData: [CGPoint]{
+        get{points} //getter for the points property
+        set{points = newValue} //setter for the points property
+        
+    }
+    
+    func path(in rect: CGRect) -> Path {
+        Path{ path in
+            if let first = points.first{
+                path.move(to: first)
+                path.addLines(points)
+            }
         }
     }
 }
 
 struct ScratchCardView_Previews: PreviewProvider {
     static var previews: some View {
-        Home()
+        ContentView()
     }
 }
