@@ -113,6 +113,7 @@ struct Home: View {
                 .foregroundColor(.gray)
             HStack{
                 Image(systemName: "applelogo")
+                    .offset(y: -3)
                 Text("$59")
             }
             .font(.title)
